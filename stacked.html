@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-areas: 
+        "header nav"
+        "main aside"
+        "footer footer";
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      gap: 10px;
+      height: 100vh;
+    }
+    header {
+      grid-area: header;
+      background-color: #f0f0f0;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+    nav {
+      grid-area: nav;
+      background-color: #f0f0f0;
+      padding: 10px;
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+    }
+    main {
+      grid-area: main;
+      padding: 10px;
+      background-color: #ddd;
+    }
+    aside {
+      grid-area: aside;
+      padding: 10px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 10px;
+    }
+    .secondary-content {
+      background-color: #ccc;
+    }
+    .tertiary-content {
+      background-color: #bbb;
+    }
+    footer {
+      grid-area: footer;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+    footer section {
+      flex: 1;
+      margin: 0 10px;
+      background-color: #ddd;
+      padding: 10px;
+    }
+    /* Mobile Styles */
+    @media only screen and (max-width: 600px) {
+      body {
+        grid-template-areas: 
+          "header"
+          "nav"
+          "main"
+          "aside"
+          "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+      }
+      nav {
+        justify-content: space-around;
+      }
+      footer {
+        flex-direction: column;
+      }
+      footer section {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Logo / Site Name
+  </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <main>
+    Main Content
+  </main>
+  <aside>
+    <div class="secondary-content">
+      Secondary Content
+    </div>
+    <div class="tertiary-content">
+      Tertiary Content
+    </div>
+  </aside>
+  <footer>
+    <section>Quaternary Content 1</section>
+    <section>Quaternary Content 2</section>
+    <section>Quaternary Content 3</section>
+  </footer>
+</body>
+</html>
